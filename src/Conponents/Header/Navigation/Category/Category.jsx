@@ -1,40 +1,23 @@
 import { NavLink } from 'react-router-dom';
 import s from './Category.module.scss';
+import cn from 'classnames';
+import { useSelector } from 'react-redux';
 
+export const Category= () => {
+    const { activeGender, categories } = useSelector(state => state.navigation);
 
-const list = [
-    { 
-        link: 'women', 
-        title: 'Женщины', 
-        categories: [
-        { link: 'bras', title: 'Бюстгальтеры'},
-        { link: 'panties', title: 'Трусы'},
-        { link: 'socks', title: 'Носки'},
-        { link: 'bathrobes', title: 'Халаты'},
-        { link: 'thermsl', title: 'Термобелье'},
-        { link: 'pijamas', title: 'Пижамы'},
-        ]
-    },
-    // { link: 'men', title: 'Мужчины', categories: [
-    //     { link: 'panties', title: 'Трусы'},
-    //     { link: 'socks', title: 'Носки'},
-    //     { link: 'bathrobes', title: 'Халаты'},
-    //     { link: 'thermsl', title: 'Термобелье'},
-    //     ] },
-];
-
-
-export const Category= () => (
-<div className={s.category}>
-    <ul className={s.category}>
-    {list.categories.map((category => 
-        <li key={category.link}>
-            <NavLink className={s.link} to={`${list.link}/${category.link}`}>
-                {category.title}
-            </NavLink>
-        </li>
-        ))}
-    </ul>
-</div>
-    
-)
+    return (
+        <ul className={s.category}>
+            {categories[activeGender]?.list?.map((item) => (
+            <li key={item.slug} className={s.item}>
+                <NavLink
+                className={({ isActive }) => cn(s.link, isActive && s.linkActive)}
+                to={`${activeGender}/${item.slug}`}
+                >
+                {item.title}
+                </NavLink>
+            </li>
+            ))}
+        </ul>
+    );
+};

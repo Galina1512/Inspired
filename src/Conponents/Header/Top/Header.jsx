@@ -1,10 +1,10 @@
 import { Top } from "../Top/Top.jsx";
 import { Navigation } from "../Navigation/Navigation";
 
-export const Header = () => (
+export const Header = ({list}) => (
     <header>
     <Top/>
-    <Navigation/>
+    <Navigation list={list}/>
         
     </header>
 )

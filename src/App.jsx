@@ -7,6 +7,9 @@ import {
 import { MainPage } from "./Conponents/MainPage/MainPage";
 import { Root } from "./routes/Root";
 import { ErrorPage } from "./Conponents/ErrorPage/ErrorPage";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchNavigation } from "./features/navigationSlice";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +23,13 @@ const router = createBrowserRouter(
     </Route>
   )
 )
-export const App = () => 
-<RouterProvider router={router}></RouterProvider> ;
+export const App = () =>  {
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchNavigation());
+    
+  }, [dispatch]);
+
+return <RouterProvider router={router}></RouterProvider> ;
+};

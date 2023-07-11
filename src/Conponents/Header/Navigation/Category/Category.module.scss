@@ -53,6 +53,8 @@
   
     &Active {
       pointer-events: none;
+      border-color: #000000;
+
       &::after {
         opacity: 1;
       }
