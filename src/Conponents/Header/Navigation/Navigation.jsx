@@ -18,8 +18,8 @@ export const Navigation = ({ list }) => {
     return (
     <nav>
         <Container>
-            <Gender list={list}/>
-            <Category list={list}/>
+            <Gender/>
+            <Category/>
         </Container>
     </nav>
     )
