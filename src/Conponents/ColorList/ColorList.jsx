@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import s from './ColorList.module.scss';
-import { Color } from './Color';
+import { Color } from './Color.jsx';
+import { useRef } from 'react';
 
 export const ColorList = ({ colors }) => {
     const { colorList } = useSelector(state => state.color);
@@ -8,10 +9,9 @@ export const ColorList = ({ colors }) => {
     return (
         <ul className={s.colorList}>
             {colors.map((id, i) => {
-            const color = colorList.find(color => color.id ===id);
-            return <Color key={id} color={color?.code} check ={!i} />
-        })}:
-
+            const color = colorList.find(color => color.id === id);
+            return <Color  key={id} color={color?.code} check ={!i} />
+          })}:
         </ul>
     )
 }
