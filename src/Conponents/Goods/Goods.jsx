@@ -5,14 +5,7 @@ import { Product } from '../Product/Product.jsx';
 
 export const Goods = ({ categoryData }) => {
     const { goodsList } = useSelector(state => state.goods);
-    // const { activeGender, categories } = useSelector(state => state.navigation);
-
     const title = categoryData?.title ?? ' Новинки';
-
-    // ? categories[activeGender]?.list
-    // .find((item) => item.slug === category)
-    // .title : ' Новинки';
-
 
     return (
     <section className={s.goods}>       
