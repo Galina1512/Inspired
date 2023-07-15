@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchCategory, fethcGender } from "../../features/goodsSlice.js";
+import { fetchCategory, fetchGender } from "../../features/goodsSlice.js";
 import { setActiveGender } from "../../features/navigationSlice";
 import { Goods } from "../Goods/Goods.jsx";
 import { Banner } from "../Banner/Banner.jsx";
@@ -20,7 +20,7 @@ export const MainPage = () => {
             dispatch(setActiveGender(gender));
         } else if (genderList[0]) {
             dispatch(setActiveGender(genderList[0]));
-            dispatch(fethcGender(genderList[0]));
+            dispatch(fetchGender(genderList[0]));
         }
     }, [gender, dispatch, genderList]);
 
@@ -39,7 +39,8 @@ export const MainPage = () => {
     return (
         <>
             {!category && <Banner data={genderData?.banner} />}
-            <Goods categoryData={categoryData} />
+            <Goods 
+                title={categoryData?.title} />
         </>
         )
 }

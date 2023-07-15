@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { GOODS_URL } from "../const";
 
-export const fethcGender = createAsyncThunk(
+export const fetchGender = createAsyncThunk(
     'goods/fetchGender',
     async (gender) => {
         const url = new URL(GOODS_URL);
@@ -38,14 +38,14 @@ export const goodsSlice = createSlice({
     },
     extraReducers: builder => {
         builder
-        .addCase(fethcGender.pending , (state) => {
+        .addCase(fetchGender.pending , (state) => {
             state.status = 'loading';
         })
-        .addCase(fethcGender.fulfilled , (state, action) => {
+        .addCase(fetchGender.fulfilled , (state, action) => {
             state.status = 'success';
             state.goodsList = action.payload;
         })
-        .addCase(fethcGender.rejected , (state, action) => {
+        .addCase(fetchGender.rejected , (state, action) => {
             state.status = 'failed';
             state.error = action.error.message;
         })
