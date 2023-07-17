@@ -31,7 +31,7 @@ export const MainPage = () => {
         }
 
         if (gender) {
-            dispatch(fethcGender(gender));
+            dispatch(fetchGender(gender));
             return;
         }
     }, [gender, category, dispatch]);

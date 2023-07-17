@@ -11,14 +11,18 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchNavigation } from "./features/navigationSlice";
 import { fetchColors } from "./features/colorSlice";
-import { ProductPage } from "./Conponents/ProductPage/ProductPage";
+import { ProductPage } from "./Conponents/ProductPage/ProductPage.jsx";
+import { FavoritePage } from "./Conponents/FavoritePage/FavoritePage.jsx";
+import { CartPage } from "./Conponents/CartPage/CartPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Root />}>
       <Route index element={<MainPage />} />
-      <Route path='product/:id' element={<ProductPage />} />
-      <Route path='catalog/:gender/:category?' element={<MainPage />} />
+      <Route path='/favorite' element={<FavoritePage />} />
+      <Route path='/cart' element={<CartPage />} />
+      <Route path='/product/:id' element={<ProductPage />} />
+      <Route path='/catalog/:gender/:category?' element={<MainPage />} />
 
       <Route path='*' element={<ErrorPage />} />
     </Route>
