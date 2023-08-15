@@ -9,9 +9,7 @@ export const Banner = ({data}) => {
     const isMobile = useMedia('(max-width: 540px)');
     const isTablet = useMedia('(max-width: 768px)');
     const isLaptop = useMedia('(max-width: 1024px)');
-
     const [bgURL, setBgURL] = useState('');
-
 
     useEffect(() => {
             if (isMobile) {
@@ -25,7 +23,7 @@ export const Banner = ({data}) => {
             }
     }, [isMobile, isTablet, isLaptop, data]);
     return (
-        data &&
+        data && (
         <section 
             className={s.banner} 
             style={{
@@ -43,5 +41,5 @@ export const Banner = ({data}) => {
         
         </section>
         )
-        
-}
+    );
+};

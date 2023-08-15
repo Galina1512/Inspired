@@ -14,5 +14,5 @@ export const Count = ({
     <button className={s.item} type="button" onClick={handleIncrement}>+</button>
     </div>
 
-)
+);
 

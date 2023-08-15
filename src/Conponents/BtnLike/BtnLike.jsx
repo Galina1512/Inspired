@@ -1,7 +1,10 @@
-import s from './BtnLike.module.scss';
-import {ReactComponent as LikeSVG} from '../../assets/heart.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToFavorite, removeFromFavorite } from '../../features/favoriteSlice';
+import { ReactComponent as LikeSVG } from '../../assets/heart.svg';
+import s from './BtnLike.module.scss';
+import { 
+    addToFavorite, 
+    removeFromFavorite,
+ } from '../../features/favoriteSlice';
 import cn from 'classnames';
 
 export const BtnLike = ({id}) => {
@@ -9,24 +12,20 @@ export const BtnLike = ({id}) => {
     const isFavorite = useSelector(state => state.favorites.includes(id));
 
     const handleToggleFavorite = () => {
-        console.log(isFavorite)
-
         if (isFavorite) {
-            dispatch(removeFromFavorite({id}))
+            dispatch(removeFromFavorite({ id }));
         } else {
-            dispatch(addToFavorite({id}))
+            dispatch(addToFavorite({ id }));
         }
-    }
-
+    };
 
     return (
         <button 
             className={isFavorite ? cn(s.like, s.active) : s.like}
             aria-label='Добавить в избранное'
             type='button'
-            onClick={handleToggleFavorite}
-        >
+            onClick={handleToggleFavorite}>
             <LikeSVG />
         </button>
-    )
-}
+    );
+};

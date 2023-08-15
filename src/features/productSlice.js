@@ -7,7 +7,7 @@ export const fetchProduct = createAsyncThunk(
         const response = await fetch(`${GOODS_URL}/${id}`);
         return await response.json();
     }
-)
+);
 
 const productSlice = createSlice({
     name: 'product',
@@ -16,10 +16,11 @@ const productSlice = createSlice({
         error: null,
         product: {},
     },
-    extraReducers: (builder => {
+    extraReducers: (builder) => {
         builder
         .addCase(fetchProduct.pending, (state) => {
             state.status = 'loading';
+            state.product = {};
         })
         .addCase(fetchProduct.fulfilled, (state, action) => {
             state.status = 'success';
@@ -27,9 +28,10 @@ const productSlice = createSlice({
         })
         .addCase(fetchProduct.rejected, (state, action) => {
             state.status = 'failed';
+            state.product = {};
             state.error = action.error.message;
-        })
-    })
+        });
+    },
 });
 
 export default productSlice.reducer;

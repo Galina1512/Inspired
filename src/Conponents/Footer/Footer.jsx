@@ -4,7 +4,6 @@ import s from './Footer.module.scss';
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-
 export const Footer = () => {
     const { genderList, categories } = useSelector(state => state.navigation);
 
@@ -37,11 +36,7 @@ export const Footer = () => {
                               </ul>
                           </li>
                       ))}
-                      <li className={s.categoryItem}>
-                          <h3 className={s.categorySubtitle}>
-      
-                          </h3>
-                      </li>
+
                   </ul>
               </div>
       

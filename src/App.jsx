@@ -14,6 +14,7 @@ import { fetchColors } from "./features/colorSlice";
 import { ProductPage } from "./Conponents/ProductPage/ProductPage.jsx";
 import { FavoritePage } from "./Conponents/FavoritePage/FavoritePage.jsx";
 import { CartPage } from "./Conponents/CartPage/CartPage.jsx";
+import { SearchPage } from "./Conponents/SearchPage/SearchPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,13 +22,15 @@ const router = createBrowserRouter(
       <Route index element={<MainPage />} />
       <Route path='/favorite' element={<FavoritePage />} />
       <Route path='/cart' element={<CartPage />} />
+      <Route path='/search' element={<SearchPage />} />
       <Route path='/product/:id' element={<ProductPage />} />
       <Route path='/catalog/:gender/:category?' element={<MainPage />} />
 
       <Route path='*' element={<ErrorPage />} />
     </Route>
   )
-)
+);
+
 export const App = () =>  {
   const dispatch = useDispatch();
 

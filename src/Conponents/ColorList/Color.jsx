@@ -15,5 +15,5 @@ export const Color = ({ color, check }) => {
         // style={{"--data-color": color}}
         ref={colorRef}
         />
-    )
-}
+    );
+};

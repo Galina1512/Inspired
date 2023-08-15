@@ -8,9 +8,7 @@ export const fetchNavigation = createAsyncThunk(
         const data = await response.json();
         return data;
     }
-
 )
-
 const navigationSlice = createSlice({
     name: 'navigation',
     initialState: {
@@ -40,7 +38,6 @@ const navigationSlice = createSlice({
             state.error = action.error.message;
         })
     }
-
 });
 export const { setActiveGender } = navigationSlice.actions;
 

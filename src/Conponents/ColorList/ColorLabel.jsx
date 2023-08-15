@@ -1,12 +1,8 @@
 import { useEffect, useRef } from 'react';
 import s from './ColorLabel.module.scss';
+import { Field } from 'formik';
 
-export const ColorLabel = ({ 
-    color, 
-    check,
-    selectedColor,
-    handleColorChange
- }) => {
+export const ColorLabel = ({ color }) => {
     const colorRef = useRef(null);
 
     useEffect(() => {
@@ -16,15 +12,13 @@ export const ColorLabel = ({
 
     return (
         <label className={s.color} ref={colorRef}>
-            <input 
+            <Field 
             className={s.input}
                 type='radio'
                 name='color'
                 value={color?.title}
-                checked={selectedColor ? selectedColor === color?.title : check}
-                onChange={handleColorChange}
             />
             <span className={s.colorCheck}></span>
         </label>
-    )
-}
+    );
+};
